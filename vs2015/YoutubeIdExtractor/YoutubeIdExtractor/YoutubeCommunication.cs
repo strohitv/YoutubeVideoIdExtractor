@@ -22,7 +22,6 @@ namespace YoutubeIdExtractor
 			request.ProtocolVersion = HttpVersion.Version11;
 
 			// Header schreiben
-			//request.Headers.Add(string.Format(resourceManager.GetString("AuthHeader"), accessToken));
 
 			var list = new List<string>();
 			Response response = null;
@@ -48,9 +47,6 @@ namespace YoutubeIdExtractor
 				request.Method = getPlaylistMethod;
 				request.Credentials = CredentialCache.DefaultCredentials;
 				request.ProtocolVersion = HttpVersion.Version11;
-
-				// Header schreiben
-				//request.Headers.Add(string.Format(resourceManager.GetString("AuthHeader"), accessToken));
 			}
 
 			if (response.etag == null && response.items == null && response.pageInfo == null)
@@ -92,8 +88,6 @@ namespace YoutubeIdExtractor
 					// Url erhalten
 					return response.Headers.Get(headerName);
 				}
-
-				//https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true&fields=items&access_token=
 			}
 			catch (WebException ex)
 			{
@@ -113,8 +107,8 @@ namespace YoutubeIdExtractor
 					{
 						using (var reader = new StreamReader(stream))
 						{
-							var Fickdich = reader.ReadToEnd();
-							return Fickdich;
+							var error = reader.ReadToEnd();
+							return error;
 						}
 					}
 				}

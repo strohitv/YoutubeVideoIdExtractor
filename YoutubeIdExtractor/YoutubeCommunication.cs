@@ -21,8 +21,6 @@ namespace YoutubeIdExtractor
 			request.Credentials = CredentialCache.DefaultCredentials;
 			request.ProtocolVersion = HttpVersion.Version11;
 
-			// Header schreiben
-
 			var list = new List<string>();
 			Response response = null;
 			string responseString;

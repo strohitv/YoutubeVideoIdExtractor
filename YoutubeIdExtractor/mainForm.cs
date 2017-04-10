@@ -13,20 +13,32 @@ namespace YoutubeIdExtractor
 			InitializeComponent();
 		}
 
-		private void startButtonClick(object sender, System.EventArgs e)
+		private void startButtonClick(object sender, EventArgs e)
 		{
+			if (string.IsNullOrWhiteSpace(playlistIdTextBox.Text))
+			{
+				return;
+			}
+
 			mainTableLayoutPanel.Enabled = false;
 
 			var pId = playlistIdTextBox.Text;
 
-			var url = new Uri(playlistIdTextBox.Text);
-			if (url != null && url.Query.Contains("list"))
+			try
 			{
-				var parameters = HttpUtility.ParseQueryString(url.Query);
-				if (parameters.AllKeys.Contains("list"))
+				var url = new Uri(playlistIdTextBox.Text);
+				if (url != null && url.Query.Contains("list"))
 				{
-					pId = parameters["list"];
+					var parameters = HttpUtility.ParseQueryString(url.Query);
+					if (parameters.AllKeys.Contains("list"))
+					{
+						pId = parameters["list"];
+					}
 				}
+			}
+			catch (UriFormatException)
+			{
+
 			}
 
 			try

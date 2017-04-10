@@ -20,7 +20,7 @@ namespace YoutubeIdExtractor
 			request.Method = getPlaylistMethod;
 			request.Credentials = CredentialCache.DefaultCredentials;
 			request.ProtocolVersion = HttpVersion.Version11;
-
+			 
 			var list = new List<string>();
 			Response response = null;
 			string responseString;

@@ -98,24 +98,27 @@
 			// 
 			// videoIdsTextBox
 			// 
+			this.videoIdsTextBox.BackColor = System.Drawing.Color.White;
 			this.mainTableLayoutPanel.SetColumnSpan(this.videoIdsTextBox, 5);
 			this.videoIdsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.videoIdsTextBox.Location = new System.Drawing.Point(10, 49);
 			this.videoIdsTextBox.Margin = new System.Windows.Forms.Padding(0);
 			this.videoIdsTextBox.Name = "videoIdsTextBox";
+			this.videoIdsTextBox.ReadOnly = true;
 			this.videoIdsTextBox.Size = new System.Drawing.Size(654, 387);
 			this.videoIdsTextBox.TabIndex = 3;
 			this.videoIdsTextBox.Text = "";
 			// 
 			// mainForm
 			// 
+			this.AcceptButton = this.startButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(674, 446);
 			this.Controls.Add(this.mainTableLayoutPanel);
 			this.Name = "mainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Video-IDs aus Playlisten heraussuchen!";
+			this.Text = "Strohis ID-Extractor";
 			this.mainTableLayoutPanel.ResumeLayout(false);
 			this.mainTableLayoutPanel.PerformLayout();
 			this.ResumeLayout(false);

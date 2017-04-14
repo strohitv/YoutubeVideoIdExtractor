@@ -25,6 +25,16 @@ namespace YoutubeIdExtractor
 		public string id { get; set; }
 		public ContentDetails contentDetails { get; set; }
 		public Snippet snippet { get; set; }
+		public Statistics statistics { get; set; }
+	}
+
+	public class Statistics
+	{
+		public int viewCount { get; set; }
+		public int likeCount { get; set; }
+		public int dislikeCount { get; set; }
+		public int favoriteCount { get; set; }
+		public int commentCount { get; set; }
 	}
 
 	public class ContentDetails

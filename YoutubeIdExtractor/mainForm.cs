@@ -43,15 +43,22 @@ namespace YoutubeIdExtractor
 
 			try
 			{
-				var videoIds = YoutubeCommunication.GetPlaylistItems(pId);
-
-				StringBuilder sb = new StringBuilder();
-				foreach (var id in videoIds)
+				if (readStatisticsCheckbox.Checked)
 				{
-					sb.AppendLine(id);
+					videoIdsTextBox.Text = YoutubeCommunication.GetPlaylistStats(pId);
 				}
+				else
+				{
+					var videoIds = YoutubeCommunication.GetPlaylistItems(pId);
 
-				videoIdsTextBox.Text = sb.ToString();
+					StringBuilder sb = new StringBuilder();
+					foreach (var id in videoIds)
+					{
+						sb.AppendLine(id);
+					}
+
+					videoIdsTextBox.Text = sb.ToString();
+				}
 			}
 			catch (Exception ex)
 			{

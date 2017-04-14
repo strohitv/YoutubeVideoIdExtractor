@@ -8,6 +8,49 @@ namespace YoutubeIdExtractor
 {
 	public class YoutubeCommunication
 	{
+		internal static string GetPlaylistStats(string playlistId)
+		{
+			var videoIds = GetPlaylistItems(playlistId);
+
+			int viewCount = 0, likeCount = 0, dislikeCount = 0, favCount = 0, commentCount = 0;
+			List<string> unresolvedIds = new List<string>();
+
+			foreach (var id in videoIds)
+			{
+				string getVideoStatsUrl = $"https://www.googleapis.com/youtube/v3/videos?part=statistics&id={id}&key=AIzaSyBnlRJjwdRrn5yXXhxHOWIDzYzQJIVAyIg";
+				string getPlaylistMethod = "GET";
+				
+				HttpWebRequest request = (HttpWebRequest)WebRequest.Create(getVideoStatsUrl);
+				request.Proxy = null;
+				request.Method = getPlaylistMethod;
+				request.Credentials = CredentialCache.DefaultCredentials;
+				request.ProtocolVersion = HttpVersion.Version11;
+
+				var responseString = Communicate(request);
+				var response = JsonConvert.DeserializeObject<Response>(responseString);
+
+				if (response?.items?.Length == 0)
+				{
+					unresolvedIds.Add(id);
+					continue;
+				}
+
+				viewCount += response.items[0].statistics.viewCount;
+				likeCount += response.items[0].statistics.likeCount;
+				dislikeCount += response.items[0].statistics.dislikeCount;
+				commentCount += response.items[0].statistics.commentCount;
+				favCount += response.items[0].statistics.favoriteCount;
+			}
+
+			var statsString = $"Gesamtviews: {viewCount}{Environment.NewLine}Likes gesamt: {likeCount}{Environment.NewLine}Dislikes gesamt: {dislikeCount}{Environment.NewLine}Kommentare gesamt: {commentCount}{Environment.NewLine}Favorisiert: {favCount}{Environment.NewLine}";
+			if (unresolvedIds.Count > 0)
+			{
+				statsString += $"{Environment.NewLine}Für { unresolvedIds.Count} Videos wurden von Youtube ungültige Daten zurückgegeben.";
+			}
+
+			return statsString;
+		}
+
 		internal static string[] GetPlaylistItems(string playlistId)
 		{
 			string getPlaylistUrl = "https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&playlistId={0}{1}&key=AIzaSyBnlRJjwdRrn5yXXhxHOWIDzYzQJIVAyIg";

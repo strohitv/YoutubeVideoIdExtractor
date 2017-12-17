@@ -35,6 +35,7 @@
 			this.videoIdsTextBox = new System.Windows.Forms.RichTextBox();
 			this.saveButton = new System.Windows.Forms.Button();
 			this.loadButton = new System.Windows.Forms.Button();
+			this.readStatisticsCheckbox = new System.Windows.Forms.CheckBox();
 			this.mainTableLayoutPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -58,36 +59,41 @@
 			this.mainTableLayoutPanel.Controls.Add(this.videoIdsTextBox, 1, 3);
 			this.mainTableLayoutPanel.Controls.Add(this.saveButton, 7, 1);
 			this.mainTableLayoutPanel.Controls.Add(this.loadButton, 9, 1);
+			this.mainTableLayoutPanel.Controls.Add(this.videoIdsTextBox, 1, 5);
+			this.mainTableLayoutPanel.Controls.Add(this.readStatisticsCheckbox, 3, 3);
 			this.mainTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.mainTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+			this.mainTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.mainTableLayoutPanel.Name = "mainTableLayoutPanel";
-			this.mainTableLayoutPanel.RowCount = 5;
+			this.mainTableLayoutPanel.RowCount = 7;
+			this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+			this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-			this.mainTableLayoutPanel.Size = new System.Drawing.Size(870, 446);
+			this.mainTableLayoutPanel.Size = new System.Drawing.Size(899, 549);
 			this.mainTableLayoutPanel.TabIndex = 0;
 			// 
 			// idLabel
 			// 
 			this.idLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.idLabel.AutoSize = true;
-			this.idLabel.Location = new System.Drawing.Point(10, 18);
+			this.idLabel.Location = new System.Drawing.Point(10, 22);
 			this.idLabel.Margin = new System.Windows.Forms.Padding(0);
 			this.idLabel.Name = "idLabel";
-			this.idLabel.Size = new System.Drawing.Size(95, 13);
+			this.idLabel.Size = new System.Drawing.Size(123, 17);
 			this.idLabel.TabIndex = 0;
 			this.idLabel.Text = "Playlist-URL / -ID: ";
 			// 
 			// playlistIdTextBox
 			// 
 			this.playlistIdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.playlistIdTextBox.Location = new System.Drawing.Point(115, 14);
+			this.playlistIdTextBox.Location = new System.Drawing.Point(143, 19);
 			this.playlistIdTextBox.Margin = new System.Windows.Forms.Padding(0);
 			this.playlistIdTextBox.Name = "playlistIdTextBox";
-			this.playlistIdTextBox.Size = new System.Drawing.Size(407, 20);
+			this.playlistIdTextBox.Size = new System.Drawing.Size(632, 22);
 			this.playlistIdTextBox.TabIndex = 1;
 			// 
 			// startButton
@@ -98,10 +104,10 @@
 			this.startButton.Location = new System.Drawing.Point(532, 10);
 			this.startButton.Margin = new System.Windows.Forms.Padding(0);
 			this.startButton.Name = "startButton";
-			this.startButton.Padding = new System.Windows.Forms.Padding(15, 3, 15, 3);
-			this.startButton.Size = new System.Drawing.Size(136, 29);
+			this.startButton.Padding = new System.Windows.Forms.Padding(20, 4, 20, 4);
+			this.startButton.Size = new System.Drawing.Size(104, 41);
 			this.startButton.TabIndex = 2;
-			this.startButton.Text = "IDs heraussuchen!";
+			this.startButton.Text = "Los!";
 			this.startButton.UseVisualStyleBackColor = true;
 			this.startButton.Click += new System.EventHandler(this.startButtonClick);
 			// 
@@ -110,7 +116,7 @@
 			this.videoIdsTextBox.BackColor = System.Drawing.Color.White;
 			this.mainTableLayoutPanel.SetColumnSpan(this.videoIdsTextBox, 9);
 			this.videoIdsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.videoIdsTextBox.Location = new System.Drawing.Point(10, 49);
+			this.videoIdsTextBox.Location = new System.Drawing.Point(10, 92);
 			this.videoIdsTextBox.Margin = new System.Windows.Forms.Padding(0);
 			this.videoIdsTextBox.Name = "videoIdsTextBox";
 			this.videoIdsTextBox.ReadOnly = true;
@@ -148,13 +154,26 @@
 			this.loadButton.UseVisualStyleBackColor = true;
 			this.loadButton.Click += new System.EventHandler(this.loadButtonClick);
 			// 
+			// readStatisticsCheckbox
+			// 
+			this.readStatisticsCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.readStatisticsCheckbox.AutoSize = true;
+			this.readStatisticsCheckbox.Location = new System.Drawing.Point(143, 61);
+			this.readStatisticsCheckbox.Margin = new System.Windows.Forms.Padding(0);
+			this.readStatisticsCheckbox.Name = "readStatisticsCheckbox";
+			this.readStatisticsCheckbox.Size = new System.Drawing.Size(632, 21);
+			this.readStatisticsCheckbox.TabIndex = 4;
+			this.readStatisticsCheckbox.Text = "Statistiken direkt einlesen";
+			this.readStatisticsCheckbox.UseVisualStyleBackColor = true;
+			// 
 			// mainForm
 			// 
 			this.AcceptButton = this.startButton;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(870, 446);
 			this.Controls.Add(this.mainTableLayoutPanel);
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "mainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Strohis ID-Extractor";
@@ -173,6 +192,7 @@
 		private System.Windows.Forms.RichTextBox videoIdsTextBox;
 		private System.Windows.Forms.Button saveButton;
 		private System.Windows.Forms.Button loadButton;
+		private System.Windows.Forms.CheckBox readStatisticsCheckbox;
 	}
 }
 

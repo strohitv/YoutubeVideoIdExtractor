@@ -61,5 +61,28 @@ namespace YoutubeIdExtractor
 
 			mainTableLayoutPanel.Enabled = true;
 		}
+
+		private void saveButtonClick(object sender, EventArgs e)
+		{
+			saveForm form = new saveForm(playlistIdTextBox.Text);
+
+			var result = form.ShowDialog(this);
+			if (result == DialogResult.OK)
+			{
+				playlistIdTextBox.Text = form.Id;
+			}
+		}
+
+		private void loadButtonClick(object sender, EventArgs e)
+		{
+			loadForm form = new loadForm();
+
+			var result = form.ShowDialog(this);
+			if (result == DialogResult.OK)
+			{
+				playlistIdTextBox.Text = form.Id;
+				startButtonClick(sender, e);
+			}
+		}
 	}
 }

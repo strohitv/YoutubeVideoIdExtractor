@@ -37,12 +37,14 @@ namespace YoutubeIdExtractor
 		}
 
 		public string Id { get; private set; }
+		public bool ReadStatistics { get; private set; }
 
 		private PlaylistSave[] playlists = null;
 
 		private void loadButton_Click(object sender, EventArgs e)
 		{
 			Id = playlists.FirstOrDefault(p => p.Name == (string)playlistComboBox.SelectedItem)?.Id;
+			ReadStatistics = showStatisticsCheckBox.Checked;
 		}
 	}
 }

@@ -88,6 +88,7 @@ namespace YoutubeIdExtractor
 			if (result == DialogResult.OK)
 			{
 				playlistIdTextBox.Text = form.Id;
+				readStatisticsCheckbox.Checked = form.ReadStatistics;
 				startButtonClick(sender, e);
 			}
 		}

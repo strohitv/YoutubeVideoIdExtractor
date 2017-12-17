@@ -34,6 +34,7 @@
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.loadButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
+			this.showStatisticsCheckBox = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -48,17 +49,20 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.tableLayoutPanel1.Controls.Add(this.playlistLabel, 1, 1);
 			this.tableLayoutPanel1.Controls.Add(this.playlistComboBox, 3, 1);
-			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 3);
+			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 5);
+			this.tableLayoutPanel1.Controls.Add(this.showStatisticsCheckBox, 1, 3);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 5;
+			this.tableLayoutPanel1.RowCount = 7;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 81);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 117);
 			this.tableLayoutPanel1.TabIndex = 0;
 			// 
 			// playlistLabel
@@ -91,7 +95,7 @@
 			this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 3);
 			this.flowLayoutPanel1.Controls.Add(this.loadButton);
 			this.flowLayoutPanel1.Controls.Add(this.cancelButton);
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 41);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 74);
 			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(343, 29);
@@ -126,12 +130,24 @@
 			this.cancelButton.Text = "Abbrechen";
 			this.cancelButton.UseVisualStyleBackColor = true;
 			// 
+			// showStatisticsCheckBox
+			// 
+			this.showStatisticsCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.showStatisticsCheckBox.AutoSize = true;
+			this.tableLayoutPanel1.SetColumnSpan(this.showStatisticsCheckBox, 3);
+			this.showStatisticsCheckBox.Location = new System.Drawing.Point(13, 44);
+			this.showStatisticsCheckBox.Name = "showStatisticsCheckBox";
+			this.showStatisticsCheckBox.Size = new System.Drawing.Size(337, 17);
+			this.showStatisticsCheckBox.TabIndex = 3;
+			this.showStatisticsCheckBox.Text = "Statistiken direkt einlesen";
+			this.showStatisticsCheckBox.UseVisualStyleBackColor = true;
+			// 
 			// loadForm
 			// 
 			this.AcceptButton = this.loadButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(363, 81);
+			this.ClientSize = new System.Drawing.Size(363, 117);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Name = "loadForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -152,5 +168,6 @@
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 		private System.Windows.Forms.Button loadButton;
 		private System.Windows.Forms.Button cancelButton;
+		private System.Windows.Forms.CheckBox showStatisticsCheckBox;
 	}
 }

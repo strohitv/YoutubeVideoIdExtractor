@@ -82,7 +82,7 @@ namespace YoutubeIdExtractor
 
 		private void loadButtonClick(object sender, EventArgs e)
 		{
-			loadForm form = new loadForm();
+			loadForm form = new loadForm(readStatisticsCheckbox.Checked);
 
 			var result = form.ShowDialog(this);
 			if (result == DialogResult.OK)

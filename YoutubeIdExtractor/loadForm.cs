@@ -14,7 +14,7 @@ namespace YoutubeIdExtractor
 {
 	public partial class loadForm : Form
 	{
-		public loadForm()
+		public loadForm(bool showStatistics)
 		{
 			InitializeComponent();
 
@@ -34,12 +34,14 @@ namespace YoutubeIdExtractor
 					}
 				}
 			}
+
+			showStatisticsCheckBox.Checked = showStatistics;
 		}
 
 		public string Id { get; private set; }
 		public bool ReadStatistics { get; private set; }
 
-		private PlaylistSave[] playlists = null;
+		private PlaylistSave[] playlists = new PlaylistSave[0];
 
 		private void loadButton_Click(object sender, EventArgs e)
 		{

@@ -8,6 +8,8 @@ namespace YoutubeIdExtractor
 {
 	public class YoutubeCommunication
 	{
+		private static string ApiKey => YoutubeApiClientInformation.ApiClient;
+
 		internal static string GetPlaylistStats(string playlistId)
 		{
 			var videoIds = GetPlaylistItems(playlistId);
@@ -17,7 +19,7 @@ namespace YoutubeIdExtractor
 
 			foreach (var id in videoIds)
 			{
-				string getVideoStatsUrl = $"https://www.googleapis.com/youtube/v3/videos?part=statistics&id={id}&key=AIzaSyBnlRJjwdRrn5yXXhxHOWIDzYzQJIVAyIg";
+				string getVideoStatsUrl = $"https://www.googleapis.com/youtube/v3/videos?part=statistics&id={id}&key={ApiKey}";
 				string getPlaylistMethod = "GET";
 				
 				HttpWebRequest request = (HttpWebRequest)WebRequest.Create(getVideoStatsUrl);
@@ -53,11 +55,11 @@ namespace YoutubeIdExtractor
 
 		internal static string[] GetPlaylistItems(string playlistId)
 		{
-			string getPlaylistUrl = "https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&playlistId={0}{1}&key=AIzaSyBnlRJjwdRrn5yXXhxHOWIDzYzQJIVAyIg";
+			string getPlaylistUrl = "https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&playlistId={0}{1}&key={2}";
 			string getPlaylistMethod = "GET";
 
 			var pageToken = string.Empty;
-			string url = string.Format(getPlaylistUrl, playlistId, pageToken);
+			string url = string.Format(getPlaylistUrl, playlistId, pageToken, ApiKey);
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 			request.Proxy = null;
 			request.Method = getPlaylistMethod;
@@ -82,7 +84,7 @@ namespace YoutubeIdExtractor
 					pageToken = string.Format("&pageToken={0}", response.nextPageToken);
 				}
 
-				url = string.Format(getPlaylistUrl, playlistId, pageToken);
+				url = string.Format(getPlaylistUrl, playlistId, pageToken, ApiKey);
 				request = (HttpWebRequest)WebRequest.Create(url);
 				request.Proxy = null;
 				request.Method = getPlaylistMethod;

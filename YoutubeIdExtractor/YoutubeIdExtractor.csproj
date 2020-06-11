@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -85,6 +85,7 @@
     <Compile Include="saveForm.Designer.cs">
       <DependentUpon>saveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="YoutubeApiClientInformation.cs" />
     <Compile Include="YoutubeCommunication.cs" />
     <EmbeddedResource Include="loadForm.resx">
       <DependentUpon>loadForm.cs</DependentUpon>
